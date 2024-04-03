@@ -1,27 +1,49 @@
 ﻿<Properties StartupConfiguration="{838C9A1A-32F4-429B-8A38-0623B8224073}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ChatApp PreferredExecutionTarget="Android.0558325076000840" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.ChatApp FirstBuild="True" PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChatApp/MainPage.xaml">
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.0558325076000840" />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="34.0.85" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatApp/ViewModels/LoginViewModel.cs">
     <Files>
       <File FileName="ChatApp/MainPage.xaml.cs" />
-      <File FileName="ChatApp/MainPage.xaml" Line="19" Column="37" />
+      <File FileName="ChatApp/MainPage.xaml" />
+      <File FileName="ChatApp/Views/LoginPage.xaml" />
+      <File FileName="ChatApp/ViewModels/LoginViewModel.cs" Line="34" Column="12" />
+      <File FileName="ChatApp/Views/LoginPage.xaml.cs" />
+      <File FileName="ChatApp/ViewModels/BaseViewModel.cs" />
+      <File FileName="ChatApp/MauiProgram.cs" />
+      <File FileName="ChatApp/App.xaml" />
+      <File FileName="ChatApp/AppShell.xaml" />
+      <File FileName="ChatApp/AppShell.xaml.cs" />
+      <File FileName="ChatApp/Views/SignUpPage.xaml" />
+      <File FileName="ChatApp/ViewModels/SignUpViewModel.cs" />
+      <File FileName="ChatApp/Views/SignUpPage.xaml.cs" />
+      <File FileName="ChatApp/Platforms/Android/AndroidManifest.xml" />
+      <File FileName="ChatApp/Services/IGoogleSignInService.cs" Line="7" Column="1" />
+      <File FileName="ChatApp/Platforms/Android/MainActivity.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ChatApp" expanded="True">
+          <Node name="ChatApp">
             <Node name="ChatApp">
-              <Node name="MainPage.xaml" expanded="True" selected="True" />
+              <Node name="Platforms" expanded="True">
+                <Node name="Android" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+              <Node name="ViewModels" expanded="True">
+                <Node name="LoginViewModel.cs" selected="True" />
+              </Node>
+              <Node name="MainPage.xaml" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
