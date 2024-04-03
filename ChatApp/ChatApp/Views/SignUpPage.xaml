@@ -8,11 +8,12 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
-            <Entry x:Name="FirstNameEntry" Placeholder="First Name" />
-            <Entry x:Name="LastNameEntry" Placeholder="Last Name" />
-            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
-            <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
-            <Entry x:Name="RepeatPasswordEntry" Placeholder="Repeat Password" IsPassword="True" />
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
+            <Entry Placeholder="Name" Text="{Binding DisplayName}" />
+            <Entry Placeholder="Email" Keyboard="Email" Text="{Binding Email}" />
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
+            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" />
+            <Entry Placeholder="Repeat Password" IsPassword="True" Text="{Binding RepeatPassword}" />
             <Button Text="Sign Up" Command="{Binding SignUpCommand}" />
         </VerticalStackLayout>
     </ScrollView>

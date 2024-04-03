@@ -9,6 +9,10 @@ public partial class LoginPage : ContentPage
 	{
         var viewModel = new LoginViewModel();
 		InitializeComponent();
+        viewModel.DisplayMessageAction = async (title, message) =>
+        {
+            await ShowMessage(title, message);
+        };
         viewModel.NavigateToSignUpAction = async () =>
         {
             await Shell.Current.GoToAsync("///SignUpPage");
@@ -16,4 +20,10 @@ public partial class LoginPage : ContentPage
         };
         BindingContext = viewModel;
     }
+
+    public async Task ShowMessage(string title, string message)
+    {
+        await DisplayAlert(title, message, "OK");
+    }
+
 }

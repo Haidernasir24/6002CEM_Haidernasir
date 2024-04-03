@@ -8,27 +8,19 @@
 
     <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
         <Entry x:Name="EmailEntry"
-               Placeholder="Email"
-               Keyboard="Email"
-               ReturnType="Next" />
-               
-        <Entry x:Name="PasswordEntry"
-               Placeholder="Password"
-               IsPassword="True"
-               ReturnType="Done" />
+       Placeholder="Email"
+       Text="{Binding Email}"
+       Keyboard="Email"
+       ReturnType="Next" />
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
+<Entry x:Name="PasswordEntry"
+       Placeholder="Password"
+       Text="{Binding Password}"
+       IsPassword="True"
+       ReturnType="Done" />
                
         <Button Text="Login"
                 Command="{Binding LoginCommand}" />
-                
-        <Button Text="Login with Google"
-                BackgroundColor="#DB4437"
-                TextColor="White"
-                Command="{Binding LoginWithGoogleCommand}" />
-                
-        <Button Text="Login with Facebook"
-                BackgroundColor="#3B5998"
-                TextColor="White"
-                Command="{Binding LoginWithFacebookCommand}" />
 
         <Label Text="Don't have an account? Sign up here."
                HorizontalOptions="Center"

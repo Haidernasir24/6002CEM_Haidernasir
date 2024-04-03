@@ -4,28 +4,28 @@ using System.Windows.Input;
 using Microsoft.Maui.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using ChatApp.Services;
 
 public class SignUpViewModel : INotifyPropertyChanged
 {
-    private string _firstName;
-    private string _lastName;
+    private string _displayName;
     private string _email;
     private string _password;
     private string _repeatPassword;
-
+    private bool _isBusy;
     public event PropertyChangedEventHandler PropertyChanged;
-
-    public string FirstName
+    public Action<string, string> DisplayMessageAction { get; set; }
+    public string DisplayName
     {
-        get => _firstName;
-        set => SetProperty(ref _firstName, value);
+        get => _displayName;
+        set => SetProperty(ref _displayName, value);
     }
 
-    public string LastName
+    
+    public bool IsBusy
     {
-        get => _lastName;
-        set => SetProperty(ref _lastName, value);
+        get => _isBusy;
+        set => SetProperty(ref _isBusy, value);
     }
 
     public string Email
@@ -55,8 +55,55 @@ public class SignUpViewModel : INotifyPropertyChanged
 
     private async Task SignUpAsync()
     {
-        // Implement sign-up logic here
+        // Check if name is empty
+        if (string.IsNullOrWhiteSpace(DisplayName))
+        {
+            DisplayMessageAction?.Invoke("Error", "Name cannot be empty.");
+            return;
+        }
+
+        // Basic email validation
+        if (string.IsNullOrWhiteSpace(Email) || !Email.Contains("@"))
+        {
+            DisplayMessageAction?.Invoke("Error", "Please enter a valid email.");
+            return;
+        }
+
+        // Check if password is at least 8 characters long
+        if (string.IsNullOrWhiteSpace(Password) || Password.Length < 8)
+        {
+            DisplayMessageAction?.Invoke("Error", "Password must be at least 8 characters long.");
+            return;
+        }
+
+        // Check if passwords match
+        if (Password != RepeatPassword)
+        {
+            DisplayMessageAction?.Invoke("Error", "Passwords do not match.");
+            return;
+        }
+        IsBusy = true;
+        try
+        {
+            var authService = new FirebaseAuthService();
+            var authResponse = await authService.SignUpWithEmailAndPassword(Email, Password, DisplayName);
+
+            if (!string.IsNullOrEmpty(authResponse.userId))
+            {
+                IsBusy = false;
+                // Sign up successful
+                DisplayMessageAction?.Invoke("Success", "You have been signed up successfully.");
+                // Navigate or update UI accordingly
+            }
+        }
+        catch (Exception ex)
+        {
+            IsBusy = false;
+            DisplayMessageAction?.Invoke("Error", $"Sign up failed: {ex.Message}");
+        }
+        IsBusy = false;
     }
+
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
