@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatApp.Views.LoginPage"
+             xmlns:vm="clr-namespace:ChatApp.ViewModels"
+             x:DataType="vm:LoginViewModel"
+             Title="Login">
+
+    <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
+        <Entry x:Name="EmailEntry"
+               Placeholder="Email"
+               Keyboard="Email"
+               ReturnType="Next" />
+               
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               IsPassword="True"
+               ReturnType="Done" />
+               
+        <Button Text="Login"
+                Command="{Binding LoginCommand}" />
+                
+        <Button Text="Login with Google"
+                BackgroundColor="#DB4437"
+                TextColor="White"
+                Command="{Binding LoginWithGoogleCommand}" />
+                
+        <Button Text="Login with Facebook"
+                BackgroundColor="#3B5998"
+                TextColor="White"
+                Command="{Binding LoginWithFacebookCommand}" />
+
+        <Label Text="Don't have an account? Sign up here."
+               HorizontalOptions="Center"
+               TextColor="Blue">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToSignUpCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+    </VerticalStackLayout>
+</ContentPage>
+
