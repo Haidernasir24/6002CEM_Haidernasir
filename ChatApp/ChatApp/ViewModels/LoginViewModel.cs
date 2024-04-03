@@ -10,7 +10,6 @@ public class LoginViewModel : BaseViewModel
     public ICommand LoginWithFacebookCommand { get; }
     public ICommand NavigateToSignUpCommand { get; }
 
-    // Action to display messages. Parameters are title and message.
     public Action<string, string> DisplayMessageAction { get; set; }
 
     public LoginViewModel()
@@ -20,6 +19,7 @@ public class LoginViewModel : BaseViewModel
         LoginWithFacebookCommand = new Command(async () => await LoginWithFacebookAsync());
         NavigateToSignUpCommand = new Command(async () => await NavigateToSignUpAsync());
     }
+    public Action NavigateToSignUpAction { get; set; }
 
     private async Task LoginWithEmailPasswordAsync()
     {
@@ -38,7 +38,8 @@ public class LoginViewModel : BaseViewModel
 
     private async Task NavigateToSignUpAsync()
     {
-        DisplayMessageAction?.Invoke("Navigate", "Navigating to Sign Up...");
+        NavigateToSignUpAction?.Invoke();
     }
+
 }
 

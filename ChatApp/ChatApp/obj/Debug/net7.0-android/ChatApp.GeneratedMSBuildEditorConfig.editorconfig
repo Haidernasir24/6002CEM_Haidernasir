@@ -49,3 +49,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ChatApp.Views.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views/LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/LoginPage.xaml
+
+[/Users/aamiribrahim/Documents/Other Proj/dotnet/MAUI/ChatApp/6002CEM_Haidernasir/ChatApp/ChatApp/Views/SignUpPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatApp.Views.SignUpPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SignUpPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SignUpPage.xaml
