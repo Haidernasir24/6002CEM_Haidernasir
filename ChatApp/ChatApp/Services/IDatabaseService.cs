@@ -1,15 +1,13 @@
 ﻿namespace ChatApp.Services;
-
-public class IDatabaseService : ContentPage
+using ChatApp.Models;
+public interface IDatabaseService
 {
-	public IDatabaseService()
-	{
-		Content = new VerticalStackLayout
-		{
-			Children = {
-				new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
-				}
-			}
-		};
-	}
+    Task InitializeDatabaseAsync();
+    Task<List<User>> GetUsersAsync();
+    Task<string> GetLastMessageForUserAsync(string userId);
+    Task InsertUserAsync(User user);
+    Task UpdateUserAsync(User user);
+    Task InsertChatMessageAsync(ChatMessagesModel message);
+    Task UpdateChatMessageAsync(ChatMessagesModel message);
 }
+

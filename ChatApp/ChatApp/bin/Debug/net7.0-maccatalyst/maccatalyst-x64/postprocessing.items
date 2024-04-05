@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="ChatApp.app/Contents/MacOS/ChatApp">
+      <BCSymbolMapName>ChatApp.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>ChatApp.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/aamiribrahim/Documents/Other Proj/dotnet/MAUI/ChatApp/6002CEM_Haidernasir/ChatApp/ChatApp/obj/Debug/net7.0-maccatalyst/maccatalyst-x64/mtouch-symbols.list</SymbolFile>
+      <DSymName>ChatApp.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/aamiribrahim/Documents/Other Proj/dotnet/MAUI/ChatApp/6002CEM_Haidernasir/ChatApp/ChatApp</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>

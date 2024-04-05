@@ -2,8 +2,10 @@
 using System;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using Microsoft.Maui.Storage;
 using ChatApp.Services; // Ensure this is pointing to where your FirebaseAuthService is located
-
+using Newtonsoft.Json;
+using ChatApp.Models;
 public class LoginViewModel : BaseViewModel
 {
     private FirebaseAuthService _authService;
@@ -30,6 +32,7 @@ public class LoginViewModel : BaseViewModel
         NavigateToSignUpCommand = new Command(async () => await NavigateToSignUpAsync());
     }
     public Action NavigateToSignUpAction { get; set; }
+    public Action NavigateToChatsListPage { get; set; }
 
     private async Task LoginWithEmailPasswordAsync()
     {
@@ -44,11 +47,15 @@ public class LoginViewModel : BaseViewModel
 
         try
         {
-            var token = await _authService.SignInWithEmailAndPassword(Email, Password);
-            if (!string.IsNullOrEmpty(token))
+            var response = await _authService.SignInWithEmailAndPassword(Email, Password);
+            var signInResponse = JsonConvert.DeserializeObject<FirebaseSignInResponse>(response);
+            if (!string.IsNullOrEmpty(signInResponse.displayName) && !string.IsNullOrEmpty(signInResponse.localId))
             {
                 IsBusy = false;
-                DisplayMessageAction?.Invoke("Success", token);
+                Preferences.Set("IsLoggedIn", true);
+                Preferences.Set("userId", signInResponse.localId);
+                Preferences.Set("userName", signInResponse.displayName);
+                NavigateToChatsListPage?.Invoke();
                 // Proceed to navigate to the main part of your application
             }
             else

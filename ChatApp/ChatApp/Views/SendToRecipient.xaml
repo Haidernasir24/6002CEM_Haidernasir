@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ChatApp.ViewModels"
+             x:Class="ChatApp.Views.SendToRecipient"
+             Title="Send Message">
+
+    <ContentPage.BindingContext>
+        <vm:SendMessageViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="15" Padding="10">
+        <Editor Text="{Binding MessageContent}" 
+                Placeholder="Enter your message here..." 
+                HeightRequest="200" 
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand"/>
+                
+        <Button Text="Send" 
+                Command="{Binding SendMessageCommand}" 
+                HorizontalOptions="FillAndExpand"/>
+    </VerticalStackLayout>
+</ContentPage>
+

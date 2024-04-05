@@ -1,44 +1,64 @@
 ﻿<Properties StartupConfiguration="{838C9A1A-32F4-429B-8A38-0623B8224073}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ChatApp PreferredExecutionTarget="Android.0558325076000840" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.0558325076000840" />
+  <MultiItemStartupConfigurations />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
   <MonoDevelop.MonoDroid LastDeploySdkVersion="34.0.85" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChatApp/ViewModels/LoginViewModel.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ChatApp PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatApp/ViewModels/ChatsListViewModel.cs">
     <Files>
-      <File FileName="ChatApp/MainPage.xaml.cs" />
-      <File FileName="ChatApp/MainPage.xaml" />
-      <File FileName="ChatApp/Views/LoginPage.xaml" />
-      <File FileName="ChatApp/ViewModels/LoginViewModel.cs" Line="34" Column="12" />
-      <File FileName="ChatApp/Views/LoginPage.xaml.cs" />
+      <File FileName="ChatApp/MainPage.xaml.cs" Line="24" Column="1" />
+      <File FileName="ChatApp/MainPage.xaml" Line="12" Column="19" />
+      <File FileName="ChatApp/Views/LoginPage.xaml" Line="1" Column="1" />
+      <File FileName="ChatApp/ViewModels/LoginViewModel.cs" />
+      <File FileName="ChatApp/Views/LoginPage.xaml.cs" Line="25" Column="36" />
       <File FileName="ChatApp/ViewModels/BaseViewModel.cs" />
-      <File FileName="ChatApp/MauiProgram.cs" />
-      <File FileName="ChatApp/App.xaml" />
-      <File FileName="ChatApp/AppShell.xaml" />
-      <File FileName="ChatApp/AppShell.xaml.cs" />
+      <File FileName="ChatApp/MauiProgram.cs" Line="1" Column="1" />
+      <File FileName="ChatApp/App.xaml" Line="10" Column="34" />
+      <File FileName="ChatApp/AppShell.xaml" Line="14" Column="31" />
+      <File FileName="ChatApp/AppShell.xaml.cs" Line="7" Column="25" />
       <File FileName="ChatApp/Views/SignUpPage.xaml" />
-      <File FileName="ChatApp/ViewModels/SignUpViewModel.cs" />
+      <File FileName="ChatApp/ViewModels/SignUpViewModel.cs" Line="94" Column="23" />
       <File FileName="ChatApp/Views/SignUpPage.xaml.cs" />
       <File FileName="ChatApp/Platforms/Android/AndroidManifest.xml" />
-      <File FileName="ChatApp/Services/IGoogleSignInService.cs" Line="7" Column="1" />
-      <File FileName="ChatApp/Platforms/Android/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="ChatApp/Platforms/Android/MainActivity.cs" />
+      <File FileName="ChatApp/Services/FirebaseAuthService.cs" />
+      <File FileName="ChatApp/Models/SignUpRequest.cs" Line="1" Column="1" />
+      <File FileName="ChatApp/Models/AuthResponse.cs" Line="1" Column="1" />
+      <File FileName="ChatApp/Models/FirebaseSignInResponse.cs" Line="1" Column="1" />
+      <File FileName="ChatApp/Views/ChatsListPage.xaml" Line="15" Column="1" />
+      <File FileName="ChatApp/ViewModels/ChatsListViewModel.cs" Line="105" Column="34" />
+      <File FileName="ChatApp/Models/ChatEntry.cs" Line="5" Column="37" />
+      <File FileName="ChatApp/Services/IDatabaseService.cs" Line="1" Column="1" />
+      <File FileName="ChatApp/Models/User.cs" Line="6" Column="15" />
+      <File FileName="ChatApp/Models/ChatMessagesModel.cs" Line="7" Column="18" />
+      <File FileName="ChatApp/Services/DatabaseService.cs" Line="35" Column="15" />
+      <File FileName="ChatApp/App.xaml.cs" Line="19" Column="11" />
+      <File FileName="ChatApp/Views/ChatsListPage.xaml.cs" Line="15" Column="1" />
+      <File FileName="ChatApp/Services/FirebaseListenerService.cs" Line="97" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ChatApp">
+          <Node name="ChatApp" expanded="True">
             <Node name="ChatApp">
-              <Node name="Platforms" expanded="True">
-                <Node name="Android" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="AppIcon" expanded="True" />
               </Node>
-              <Node name="Services" expanded="True" />
               <Node name="ViewModels" expanded="True">
-                <Node name="LoginViewModel.cs" selected="True" />
+                <Node name="ChatsListViewModel.cs" selected="True" />
               </Node>
+              <Node name="Views" expanded="True">
+                <Node name="ChatsListPage.xaml" expanded="True" />
+                <Node name="LoginPage.xaml" expanded="True" />
+                <Node name="SignUpPage.xaml" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+              <Node name="AppShell.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
             </Node>
           </Node>

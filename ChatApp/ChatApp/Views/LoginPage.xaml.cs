@@ -1,6 +1,5 @@
 ﻿namespace ChatApp.Views;
 
-using AndroidX.Lifecycle;
 using ChatApp.ViewModels;
 
 public partial class LoginPage : ContentPage
@@ -18,12 +17,17 @@ public partial class LoginPage : ContentPage
             await Shell.Current.GoToAsync("///SignUpPage");
 
         };
+        viewModel.NavigateToChatsListPage = async () =>
+        {
+            await Shell.Current.GoToAsync("///ChatsListPage");
+
+        };
         BindingContext = viewModel;
+        
     }
 
     public async Task ShowMessage(string title, string message)
     {
         await DisplayAlert(title, message, "OK");
     }
-
 }

@@ -1,15 +1,8 @@
 ﻿namespace ChatApp.Models;
 
-public class User : ContentPage
+public class User 
 {
-	public User()
-	{
-		Content = new VerticalStackLayout
-		{
-			Children = {
-				new Label { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, Text = "Welcome to .NET MAUI!"
-				}
-			}
-		};
-	}
+	public int id { get; set; }
+	public string userId { get; set; }
+	public string name { get; set; }
 }

@@ -11,5 +11,8 @@
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
      <ShellContent Route="SignUpPage" ContentTemplate="{DataTemplate local:SignUpPage}" />
+    <ShellContent Route="ChatsListPage" ContentTemplate="{DataTemplate local:ChatsListPage}" />
+    <ShellContent Route="SendMessagePage" ContentTemplate="{DataTemplate local:SendMessagePage}" />
+    <ShellContent Route="TypeMessage" ContentTemplate="{DataTemplate local:SendToRecipient}" />
 </Shell>
 

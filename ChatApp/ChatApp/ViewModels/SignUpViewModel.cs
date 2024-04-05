@@ -47,7 +47,7 @@ public class SignUpViewModel : INotifyPropertyChanged
     }
 
     public ICommand SignUpCommand { get; }
-
+    public Action NavigateToChatsListPage { get; set; }
     public SignUpViewModel()
     {
         SignUpCommand = new Command(async () => await SignUpAsync());
@@ -91,8 +91,11 @@ public class SignUpViewModel : INotifyPropertyChanged
             if (!string.IsNullOrEmpty(authResponse.userId))
             {
                 IsBusy = false;
+                Preferences.Set("IsLoggedIn", true);
+                Preferences.Set("userId", authResponse.userId);
+                Preferences.Set("userName", DisplayName);
                 // Sign up successful
-                DisplayMessageAction?.Invoke("Success", "You have been signed up successfully.");
+                NavigateToChatsListPage?.Invoke();
                 // Navigate or update UI accordingly
             }
         }

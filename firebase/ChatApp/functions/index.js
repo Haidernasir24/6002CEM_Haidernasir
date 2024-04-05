@@ -1,7 +1,27 @@
 const functions = require("firebase-functions");
+const crypto = require("crypto");
 const admin = require("firebase-admin");
 admin.initializeApp();
-
+exports.sendMessage = functions.https.onRequest(async (req, res) => {
+  const {userId, text, recipientId} = req.body;
+  const timestamp = Date.now();
+  const characters = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+  0123456789`;
+  let result = "";
+  const charactersLength = characters.length;
+  for (let i = 0; i < 12; i++) {
+    const randomByte = crypto.randomBytes(1)[0];
+    result += characters[randomByte % charactersLength];
+  }
+  const msgRef = admin.database().ref(`messages/${recipientId}`);
+  await msgRef.set({
+    [result]: {
+      text,
+      userId,
+      timestamp,
+    },
+  });
+});
 exports.createUser = functions.https.onRequest(async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).send("Method Not Allowed");
@@ -16,6 +36,14 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
       email,
       password,
       displayName,
+    });
+    const msgRef = admin.database().ref(`messages/${userRecord.uid}`);
+    const userRef = admin.database().ref(`users/${userRecord.uid}`);
+    await userRef.set({
+      displayName,
+    });
+    await msgRef.set({
+      ignore: "persist",
     });
     res.status(201).send({userId: userRecord.uid});
   } catch (error) {

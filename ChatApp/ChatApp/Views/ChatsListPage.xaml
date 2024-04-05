@@ -2,11 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ChatApp.Views.ChatsListPage"
-             Title="ChatsListPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Chats">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Send" 
+                     Clicked="SendMessage" />
+        <ToolbarItem
+            Text="Logout"
+            Clicked="Logout"/>
+    </ContentPage.ToolbarItems>
+
+
+    <ListView ItemsSource="{Binding ChatEntries}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}" Detail="{Binding LastMessage}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
