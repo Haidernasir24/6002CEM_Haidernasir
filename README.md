@@ -1,1 +1,12 @@
-# 6002CEM_Haidernasir
+ChatApp
+This app aims to provide a realtime cloud backed chatting experience to users. With this app, you can recieve messages from everyone else on the app and can send messages to anyone on the app. For authentication, I used Firebase auth.
+
+Authentication
+This app provides the login/signup feature. One can sign up using there email. While it is common for apps to include login via Google/apple/facebook these days, its essential to understand that .net maui does not provide a cross platform way to login/signup with google. To acheive this, one has to go down one layer lower into platform specific which kinda kills the whole purpose of maui so i chose not do that and only offered login/signup via emial/password.
+
+When user first opens app, it checks for preferences to verify if the user is logged in or not, if not it opens login page otherwise chat page. 
+
+For login, the there are no cross platform maui .net sdks so i had to use REST APIs of firebase auth. Since firebase only allows login in client side environment and signup in server side environment, I could use login APIs in mobile app but for sign up, I had to resort to firebase cloud functions. I created function createUser which takes name, emial and password, signs up that user and returns a unique id. It also generates a map containing displayName of user with the key being user id itself, under the users key of realtime db which I use for syncing. It also creates a user id based key in messages super key of realtime db. 
+
+Chats Screen
+Since maui does not provide FCM functionality, the only option for listening for messages are mantaining a persistent connection between the app and the realtime db. I mantained in FirebaseListenerService. There I listen for changes in realtime db. If these changes are in users key (mean a user has been added), I notify the users list so that it adds it. If the addition is done in currently signed in user's key under messages super key in realtime db, then it means this user just recieved a messages so it is shown. Similarly for sending messages, we proceed to a screen where there are all the registered users shown. The sender can chose a recipient and then type a message and send it. For this, I created a firebase cloud function called sendMessage which takes recipient user id, and creates a new message entry under that user id key in messages super key in realtime db so that the user who is signed into that account recieves. This was demonstrated in the video too.
